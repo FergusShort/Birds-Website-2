@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Bird Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <h1>Update Bird Details</h1>
+    <form action="/birds/edit" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="bird_id" value="<%= bird.bird_id %>">
+
+        <label for="primary_name">Primary Name:</label>
+        <input type="text" id="primary_name" name="primary_name" value="<%= bird.primary_name %>" required><br><br>
+
+        <label for="english_name">English Name:</label>
+        <input type="text" id="english_name" name="english_name" value="<%= bird.english_name %>" required><br><br>
+
+        <label for="scientific_name">Scientific Name:</label>
+        <input type="text" id="scientific_name" name="scientific_name" value="<%= bird.scientific_name %>" required><br><br>
+
+        <label for="order_name">Order Name:</label>
+        <input type="text" id="order_name" name="order_name" value="<%= bird.order_name %>" required><br><br>
+
+        <label for="family">Family:</label>
+        <input type="text" id="family" name="family" value="<%= bird.family %>" required><br><br>
+
+        <label for="length">Length:</label>
+        <input type="text" id="length" name="length" value="<%= bird.length %>" required><br><br>
+
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight" value="<%= bird.weight %>" required><br><br>
+
+        <label for="status_id">Conservation Status:</label>
+        <select id="status_id" name="status_id" required>
+            <% status.forEach(function(s) { %>
+                <option value="<%= s.status_id %>" <%= s.status_id == bird.status_id ? 'selected' : '' %>><%= s.status_name %></option>
+            <% }) %>
+        </select><br><br>
+
+        <label for="photographer">Photographer:</label>
+        <input type="text" id="photographer" name="photographer" value="<%= bird.photographer %>" required><br><br>
+
+        <label for="filename">Upload New Photo:</label>
+        <input type="file" id="filename" name="filename"><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="/birds/<%= bird.bird_id %>/delete" onclick="return confirm('Are you sure you want to delete this bird?');">Delete Bird</a>
+
+
+    <a href="/birds">Back to Bird List</a>
+    <%- include('partials/footer') %>
+
+</body>
+</html>

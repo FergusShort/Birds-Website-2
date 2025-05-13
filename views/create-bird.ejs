@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <h1>Create a New Bird</h1>
+    <form action="/birds/create" method="POST" enctype="multipart/form-data">
+        <label for="bird_id">Bird ID:</label>
+        <input type="number" id="bird_id" name="bird_id" required><br>
+        <label for="primary_name">Primary Name:</label>
+        <input type="text" id="primary_name" name="primary_name" required><br>
+        <label for="english_name">English Name:</label>
+        <input type="text" id="english_name" name="english_name" required><br>
+        <label for="scientific_name">Scientific Name:</label>
+        <input type="text" id="scientific_name" name="scientific_name" required><br>
+        <label for="order_name">Order Name:</label>
+        <input type="text" id="order_name" name="order_name" required><br>
+        <label for="family">Family:</label>
+        <input type="text" id="family" name="family" required><br>
+        <label for="filename">Image File:</label>
+        <input type="file" id="filename" name="filename" required><br>
+        <label for="photographer">Photographer:</label>
+        <input type="text" id="photographer" name="photographer" required><br>
+        <label for="length">Length (cm):</label>
+        <input type="number" id="length" name="length" required><br>
+        <label for="weight">Weight (g):</label>
+        <input type="number" id="weight" name="weight" required><br>
+        <label for="status_id">Conservation Status:</label>
+        <select id="status_id" name="status_id" required>
+            <% status.forEach(function(s) { %>
+                <option value="<%= s.status_id %>"><%= s.status_name %></option>
+            <% }); %>
+        </select><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <%- include('partials/footer') %>
+</body>
+</html>
