@@ -2,7 +2,7 @@
 
 This was my second web project, created during my second year of Software Engineering. It includes:
 
-- 🖼️ A frontend built using templating **views** (not Vue.js)
+- 🖼️ A frontend built using templating
 - 🌐 A Node.js backend server
 - 🗄️ A MySQL database running inside a Docker container
 
@@ -21,8 +21,9 @@ cd Birds-Website-2
 
 ### 2. Start the MySQL Container (via Docker)
 Make sure Docker is installed and running on your machine. Then start the MySQL service:
-
+```bash
 docker compose up -d
+```
 This runs a MySQL container with the following configuration:
 
 Database: ASGN2
@@ -40,14 +41,16 @@ You can run these SQL files using a MySQL client connected to the container.
 
 ### 3. Start the App
 From the root of the project directory, install the dependencies and start the application:
-
+```bash
 npm install
 npm run start
+```
 This will start both the backend server and frontend view rendering (depending on how your start script is configured).
 
 Once running, you can access the app in your browser at:
+```
 http://localhost:3000
-
+```
 
 ### ✅ Notes
 Docker must be running before starting the application, as the MySQL database is containerized.
